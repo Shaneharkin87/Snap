@@ -4,6 +4,8 @@ import '../../../branding.css'
 import { ICardProps } from '../card/ICardProps';
 import Card from '../card/Card'
 
+//Sham this git shit works pushes and everything
+
 export default class Game extends React.Component<IGameProps, {}> {
     deck:ICardProps[] = [
         /*{cardNo: 'A', image:"../../../Images/smol.png"},
