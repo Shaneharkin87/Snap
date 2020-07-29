@@ -8,9 +8,9 @@ import {
 import { BaseClientSideWebPart } from '@microsoft/sp-webpart-base';
 
 import * as strings from 'HelloWorldWebPartStrings';
-import Card from './card/Card';
-import Game from './game/game';
-import { IGameProps } from './game/IGameProps';
+import Card from './components/card/Card';
+import Game from './components/game/game';
+import { IGameProps } from './components/game/IGameProps';
 
 export interface GameWebPartProps {
   deck: Card[];

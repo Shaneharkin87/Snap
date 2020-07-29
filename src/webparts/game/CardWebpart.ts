@@ -8,11 +8,11 @@ import {
 import { BaseClientSideWebPart } from '@microsoft/sp-webpart-base';
 
 import * as strings from 'HelloWorldWebPartStrings';
-import Card from './card/Card';
-import { ICardProps } from './card/ICardProps';
+import Card from './components/card/Card';
+import { ICardProps } from './components/card/ICardProps';
 
 export interface CardWebPartProps {
-  cardNo: string;
+  cardNo: string; 
   image: string;
   style: string;
 }

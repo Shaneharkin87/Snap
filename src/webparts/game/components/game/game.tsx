@@ -1,10 +1,9 @@
 import * as React from 'react';
 import { IGameProps } from './IGameProps';
-import '../../../branding.css'
-import { ICardProps } from '../card/ICardProps';
 import Card from '../card/Card'
-
-//Sham this git shit works pushes and everything
+import styles from './game.module.scss';
+import { ICardProps } from '../card/ICardProps';
+import '../../../branding.css';
 
 export default class Game extends React.Component<IGameProps, {}> {
     deck:ICardProps[] = [
@@ -33,9 +32,10 @@ export default class Game extends React.Component<IGameProps, {}> {
         {cardNo: '10',image:"../../../Images/heart.png"},
         {cardNo: 'J', image:"../../../Images/heart.png"},
         {cardNo: 'Q', image:"../../../Images/heart.png"},*/
-        {cardNo: 'K', image:"../../../Images/diamond.png"},
+        {cardNo: 'K', image:"../../../Images/diamond.png", noStyle: 'topLeftRed', style: 'cardContainer'},
+        {cardNo: 'J', image:"../../../Images/diamond.png", noStyle: 'topLeftRed', style: 'cardContainer'},
     ]; 
-
+ 
     public render(): React.ReactElement<IGameProps> {
         return (
             <div className="game"> 
@@ -43,6 +43,8 @@ export default class Game extends React.Component<IGameProps, {}> {
                     return <Card
                         cardNo = {current.cardNo}
                         image = {current.image}
+                        style = {current.style}
+                        noStyle= {current.noStyle}
                     />
                 })
                 }

@@ -10,19 +10,19 @@
         }
       ]
     },
-    "card-web-part": {
-      "components": [
-        {
-          "entrypoint": "./lib/webparts/helloWorld/CardWebPart.js",
-          "manifest": "./src/webparts/game/card/CardWebPart.manifest.json"
-        }
-      ]
-    },
     "game-web-part": {
       "components": [
         {
-          "entrypoint": "./lib/webparts/game/game/GameWebPart.js",
-          "manifest": "./src/webparts/game/game/GameWebPart.manifest.json"
+          "entrypoint": "./lib/webparts/game/GameWebPart.js",
+          "manifest": "./src/webparts/game/GameWebPart.manifest.json"
+        }
+      ]
+    },
+    "card-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/game/CardWebPart.js",
+          "manifest": "./src/webparts/game/CardWebPart.manifest.json"
         }
       ]
     }
