@@ -66,16 +66,14 @@ export default class Game extends React.Component<IGameProps, {}> {
     ]; 
 
     private shuffle(deck:ICardProps[]): ICardProps[]{
-        for(let i = this.deck.length; i> 0; i--){
-            let j = Math.floor(Math.random() * (i +1));
-            let temp = deck[i];
-            deck[i] = deck[j];
-            deck[j] = temp;
+        for(let i = deck.length; i> 0; i--){
+            let j = Math.floor(Math.random() * i);
+            [deck[i], deck[j]] = [deck[j], deck[i]];
         }
         return deck;
     }
-    player:ICardProps[] = []
-    pile:ICardProps[] = this.deck.shuffle();
+    player:ICardProps[] = [];
+    pile = this
 
  
     public render(): React.ReactElement<IGameProps> {
