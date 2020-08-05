@@ -73,7 +73,7 @@ export default class Game extends React.Component<IGameProps, {}> {
         return deck;
     }
     player:ICardProps[] = [];
-    pile = this
+    pile = this.shuffle(this.deck);
 
  
     public render(): React.ReactElement<IGameProps> {
