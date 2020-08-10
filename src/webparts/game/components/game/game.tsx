@@ -69,6 +69,11 @@ export default class Game extends React.Component<any, {}> {
             [deck[i], deck[j]] = [deck[j],  deck[i]];
         }
     }
+<<<<<<< HEAD
+=======
+    player:ICardProps[] = [];
+    pile = this.shuffle(this.deck);
+>>>>>>> 77449931d3d171c48afb27dc4ceaa2bd4b61a59b
 
     player:ICardProps[] = []; 
     
