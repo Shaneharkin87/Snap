@@ -1,11 +1,9 @@
 import * as React from 'react';
-import { IGameProps } from './IGameProps';
-import Card from '../card/Card'
-import styles from './game.module.scss';
+import Card from '../card/Card';
 import { ICardProps } from '../card/ICardProps';
 import '../../../branding.css';
 
-export default class Game extends React.Component<IGameProps, {}> {
+export default class Game extends React.Component<any, {}> {
     public constructor(props: ICardProps) {
         super(props);
     }
@@ -65,27 +63,27 @@ export default class Game extends React.Component<IGameProps, {}> {
         {cardNo: 'K', image:"../../../Images/diamond.png", noStyle: 'topLeftRed', style: 'cardContainer'},*/
     ]; 
 
-    private shuffle(deck:ICardProps[]): ICardProps[]{
+    private shuffle(deck:ICardProps[]){
         for(let i = deck.length; i> 0; i--){
             let j = Math.floor(Math.random() * i);
-            [deck[i], deck[j]] = [deck[j], deck[i]];
+            [deck[i], deck[j]] = [deck[j],  deck[i]];
         }
-        return deck;
     }
-    player:ICardProps[] = [];
-    pile = this
 
- 
-    public render(): React.ReactElement<IGameProps> {
+    player:ICardProps[] = []; 
+    
+    public render(): React.ReactElement<any> {
+        this.shuffle(this.deck);
         return (
             <div className="game"> 
-                {this.pile.map((current, index) =>{
-                    return <Card
+                {this.deck.map((current, index) =>{
+                    return (<Card
                         cardNo = {current.cardNo}
                         image = {current.image}
                         style = {current.style}
                         noStyle= {current.noStyle}
-                    />
+                        key = {index}
+                    />);
                 })
                 }
             </div>
