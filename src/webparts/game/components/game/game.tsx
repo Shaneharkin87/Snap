@@ -73,17 +73,20 @@ export default class Game extends React.Component<any, {}> {
     player:ICardProps[] = []; 
     
     public render(): React.ReactElement<any> {
+        console.log('>>>>>>>>>>',this.deck);
         this.shuffle(this.deck);
         return (
             <div className="game"> 
                 {this.deck.map((current, index) =>{
-                    return (<Card
-                        cardNo = {current.cardNo}
-                        image = {current.image}
-                        style = {current.style}
-                        noStyle= {current.noStyle}
-                        key = {index}
-                    />);
+                    return({
+
+                        current != undefined ? <Card
+                                                cardNo = {current.cardNo}
+                                                image = {current.image}
+                                                style = {current.style}
+                                                noStyle= {current.noStyle}
+                                                key = {index}/>
+                        :null }) 
                 })
                 }
             </div>
