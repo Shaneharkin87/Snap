@@ -10,10 +10,10 @@ export default class Game extends React.Component<any, {}> {
 
     deck:ICardProps[] = [
         {cardNo: 'A', image:"../../../Images/smol.png", noStyle: 'topLeft', style: 'cardContainer'},
-        {cardNo: '2', image:"../../../Images/smol.png", noStyle: 'topLeft', style: 'cardContainer'},
+        /*{cardNo: '2', image:"../../../Images/smol.png", noStyle: 'topLeft', style: 'cardContainer'},
         {cardNo: '3', image:"../../../Images/smol.png", noStyle: 'topLeft', style: 'cardContainer'},
         {cardNo: '4', image:"../../../Images/smol.png", noStyle: 'topLeft', style: 'cardContainer'},
-        /*{cardNo: '5', image:"../../../Images/smol.png", noStyle: 'topLeft', style: 'cardContainer'},
+        {cardNo: '5', image:"../../../Images/smol.png", noStyle: 'topLeft', style: 'cardContainer'},
         {cardNo: '6', image:"../../../Images/smol.png", noStyle: 'topLeft', style: 'cardContainer'},
         {cardNo: '7', image:"../../../Images/smol.png", noStyle: 'topLeft', style: 'cardContainer'},
         {cardNo: '8', image:"../../../Images/smol.png", noStyle: 'topLeft', style: 'cardContainer'},
@@ -21,9 +21,9 @@ export default class Game extends React.Component<any, {}> {
         {cardNo: '10',image:"../../../Images/smol.png", noStyle: 'topLeft', style: 'cardContainer'},
         {cardNo: 'J', image:"../../../Images/smol.png", noStyle: 'topLeft', style: 'cardContainer'},
         {cardNo: 'Q', image:"../../../Images/smol.png", noStyle: 'topLeft', style: 'cardContainer'},
-        {cardNo: 'K', image:"../../../Images/smol.png", noStyle: 'topLeft', style: 'cardContainer'},
+        {cardNo: 'K', image:"../../../Images/smol.png", noStyle: 'topLeft', style: 'cardContainer'},*/
         {cardNo: 'A', image:"../../../Images/club.png", noStyle: 'topLeft', style: 'cardContainer'},
-        {cardNo: '2', image:"../../../Images/club.png", noStyle: 'topLeft', style: 'cardContainer'},
+        /*{cardNo: '2', image:"../../../Images/club.png", noStyle: 'topLeft', style: 'cardContainer'},
         {cardNo: '3', image:"../../../Images/club.png", noStyle: 'topLeft', style: 'cardContainer'},
         {cardNo: '4', image:"../../../Images/club.png", noStyle: 'topLeft', style: 'cardContainer'},
         {cardNo: '5', image:"../../../Images/club.png", noStyle: 'topLeft', style: 'cardContainer'},
@@ -34,9 +34,9 @@ export default class Game extends React.Component<any, {}> {
         {cardNo: '10',image:"../../../Images/club.png", noStyle: 'topLeft', style: 'cardContainer'},
         {cardNo: 'J', image:"../../../Images/club.png", noStyle: 'topLeft', style: 'cardContainer'},
         {cardNo: 'Q', image:"../../../Images/club.png", noStyle: 'topLeft', style: 'cardContainer'},
-        {cardNo: 'K', image:"../../../Images/club.png", noStyle: 'topLeft', style: 'cardContainer'},
+        {cardNo: 'K', image:"../../../Images/club.png", noStyle: 'topLeft', style: 'cardContainer'},*/
         {cardNo: 'A', image:"../../../Images/heart.png", noStyle: 'topLeftRed', style: 'cardContainer'},
-        {cardNo: '2', image:"../../../Images/heart.png", noStyle: 'topLeftRed', style: 'cardContainer'},
+        /*{cardNo: '2', image:"../../../Images/heart.png", noStyle: 'topLeftRed', style: 'cardContainer'},
         {cardNo: '3', image:"../../../Images/heart.png", noStyle: 'topLeftRed', style: 'cardContainer'},
         {cardNo: '4', image:"../../../Images/heart.png", noStyle: 'topLeftRed', style: 'cardContainer'},
         {cardNo: '5', image:"../../../Images/heart.png", noStyle: 'topLeftRed', style: 'cardContainer'},
@@ -47,9 +47,9 @@ export default class Game extends React.Component<any, {}> {
         {cardNo: '10',image:"../../../Images/heart.png", noStyle: 'topLeftRed', style: 'cardContainer'},
         {cardNo: 'J', image:"../../../Images/heart.png", noStyle: 'topLeftRed', style: 'cardContainer'},
         {cardNo: 'Q', image:"../../../Images/heart.png", noStyle: 'topLeftRed', style: 'cardContainer'},
-        {cardNo: 'K', image:"../../../Images/heart.png", noStyle: 'topLeftRed', style: 'cardContainer'},
+        {cardNo: 'K', image:"../../../Images/heart.png", noStyle: 'topLeftRed', style: 'cardContainer'},*/
         {cardNo: 'A', image:"../../../Images/diamond.png", noStyle: 'topLeftRed', style: 'cardContainer'},
-        {cardNo: '2', image:"../../../Images/diamond.png", noStyle: 'topLeftRed', style: 'cardContainer'},
+        /*{cardNo: '2', image:"../../../Images/diamond.png", noStyle: 'topLeftRed', style: 'cardContainer'},
         {cardNo: '3', image:"../../../Images/diamond.png", noStyle: 'topLeftRed', style: 'cardContainer'},
         {cardNo: '4', image:"../../../Images/diamond.png", noStyle: 'topLeftRed', style: 'cardContainer'},
         {cardNo: '5', image:"../../../Images/diamond.png", noStyle: 'topLeftRed', style: 'cardContainer'},
@@ -70,15 +70,26 @@ export default class Game extends React.Component<any, {}> {
         }
     }
 
-    player:ICardProps[] = []; 
+    private deal(deck:ICardProps[], playerDeck:ICardProps[]):ICardProps[]{
+        for(let i=0; i >= deck.length; i++){
+            let j = 0;
+            if(i % 2 == 0 ){
+                deck[i] = playerDeck[j];
+                j++;
+            }
+        }
+        return playerDeck;
+    }
+
     
     public render(): React.ReactElement<any> {
-        console.log('>>>>>>>>>>',this.deck);
         this.shuffle(this.deck);
+        
+
         return (
             <div className="game"> 
                 {this.deck.map((current, index) =>{
-                    return({
+                    return(<div>{
 
                         current != undefined ? <Card
                                                 cardNo = {current.cardNo}
@@ -86,7 +97,7 @@ export default class Game extends React.Component<any, {}> {
                                                 style = {current.style}
                                                 noStyle= {current.noStyle}
                                                 key = {index}/>
-                        :null }) 
+                        :null }</div>) 
                 })
                 }
             </div>
