@@ -65,6 +65,7 @@ export default class Game extends React.Component<any, {}> {
     playerDeck:ICardProps[] = [];
 
     private shuffle(deck:ICardProps[]){
+        deck.pop;
         for(let i = deck.length; i> 0; i--){
             let j = Math.floor(Math.random() * i);
             [deck[i], deck[j]] = [deck[j],  deck[i]];
@@ -73,10 +74,10 @@ export default class Game extends React.Component<any, {}> {
 
     private deal(deck:ICardProps[], playerDeck:ICardProps[]):ICardProps[]{
         let j = 0;
-        
+
         for(let i=0; i <= deck.length; i++){
             if(i % 2 == 0 ){
-                deck[i] = playerDeck[j];
+                playerDeck[j] = deck[i];
                 j++;
             }
         }
