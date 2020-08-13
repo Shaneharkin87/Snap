@@ -72,8 +72,9 @@ export default class Game extends React.Component<any, {}> {
     }
 
     private deal(deck:ICardProps[], playerDeck:ICardProps[]):ICardProps[]{
+        let j = 0;
+        
         for(let i=0; i <= deck.length; i++){
-            let j = 0;
             if(i % 2 == 0 ){
                 deck[i] = playerDeck[j];
                 j++;
@@ -84,9 +85,11 @@ export default class Game extends React.Component<any, {}> {
 
     
     public render(): React.ReactElement<any> {
+        console.log(this.playerDeck);
+        console.log(this.deck);
         this.shuffle(this.deck);
         this.playerDeck = this.deal(this.deck, this.playerDeck); 
-        console.log(this.playerDeck);     
+        console.log(this.playerDeck);
 
         return (
             <div className="game"> 
