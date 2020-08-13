@@ -62,6 +62,7 @@ export default class Game extends React.Component<any, {}> {
         {cardNo: 'Q', image:"../../../Images/diamond.png", noStyle: 'topLeftRed', style: 'cardContainer'},
         {cardNo: 'K', image:"../../../Images/diamond.png", noStyle: 'topLeftRed', style: 'cardContainer'},*/
     ]; 
+    pile:ICardProps[];
 
     private shuffle(deck:ICardProps[]){
         for(let i = deck.length; i> 0; i--){
@@ -71,7 +72,7 @@ export default class Game extends React.Component<any, {}> {
     }
 
     private deal(deck:ICardProps[], playerDeck:ICardProps[]):ICardProps[]{
-        for(let i=0; i >= deck.length; i++){
+        for(let i=0; i <= deck.length; i++){
             let j = 0;
             if(i % 2 == 0 ){
                 deck[i] = playerDeck[j];
@@ -84,6 +85,7 @@ export default class Game extends React.Component<any, {}> {
     
     public render(): React.ReactElement<any> {
         this.shuffle(this.deck);
+        console.log(this.deck);
         
 
         return (
