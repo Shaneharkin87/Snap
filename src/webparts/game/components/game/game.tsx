@@ -76,6 +76,19 @@ export default class Game extends React.Component<any, {}> {
         }
     }
 
+    //also had this didnt work either 
+    /*private shuffle(deck:ICardProps[]){
+        for(let i = deck.length; i >= 0; i--){
+            if(i == undefined){
+                deck.splice(i, 0);
+            }
+            else{
+                let j = Math.floor(Math.random() * i);
+                [deck[i], deck[j]] = [deck[j],  deck[i]];
+            }
+        }
+    }*/
+
     private deal(deck:ICardProps[], playerDeck:ICardProps[]):ICardProps[]{
         let j = 0;
 
