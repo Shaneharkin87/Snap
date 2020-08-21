@@ -66,28 +66,14 @@ export default class Game extends React.Component<any, {}> {
 
     private shuffle(deck:ICardProps[]){
         for(let i = deck.length; i >= 0; i--){
-            if(i == undefined)
-                deck.splice(i, 0);
+            if(deck[i] == undefined)
+                deck.splice(0,0);
         }
         for(let i = deck.length; i >= 0; i--){
-                let j = Math.floor(Math.random() * i);
-                [deck[i], deck[j]] = [deck[j],  deck[i]];
-            
+            let j = Math.floor(Math.random() * i);
+            [deck[i], deck[j]] = [deck[j],  deck[i]];
         }
     }
-
-    //also had this didnt work either 
-    /*private shuffle(deck:ICardProps[]){
-        for(let i = deck.length; i >= 0; i--){
-            if(i == undefined){
-                deck.splice(i, 0);
-            }
-            else{
-                let j = Math.floor(Math.random() * i);
-                [deck[i], deck[j]] = [deck[j],  deck[i]];
-            }
-        }
-    }*/
 
     private deal(deck:ICardProps[], playerDeck:ICardProps[]):ICardProps[]{
         let j = 0;
@@ -105,12 +91,12 @@ export default class Game extends React.Component<any, {}> {
     public render(): React.ReactElement<any> {
         console.log(this.deck);
         this.shuffle(this.deck);
-        //this.playerDeck = this.deal(this.deck, this.playerDeck); 
-        console.log(this.deck);
+        this.playerDeck = this.deal(this.deck, this.playerDeck); 
+        console.log(this.playerDeck);
 
         return (
             <div className="game"> 
-                {this.deck.map((current, index) =>{
+                {this.playerDeck.map((current, index) =>{
                     return(<div>{
 
                         current != undefined ? <Card
